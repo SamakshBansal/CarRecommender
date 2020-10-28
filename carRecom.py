@@ -3,8 +3,6 @@ import tkinter
 from tkinter import *
 import pandas as pd
 
-
-
 questions =[
     "What's your budget in car ? ",
     "How much seating capacity in car ?",
@@ -29,9 +27,6 @@ ans = [
     ["White","Black","Blue","Red","Grey"],
 ]
 
-
-
-
 def output():
     a1 = ans[0][user_answer[0]]
     a2 = ans[1][user_answer[1]]
@@ -41,7 +36,6 @@ def output():
 
     df = pd.read_excel('cardatabase.xlsx')
    
-
     global lblTop
     lblTop = Label(
         root,
@@ -51,24 +45,18 @@ def output():
         justify = "center",
         wraplength = 400,
         background = "#ffffff",
-
     )
     lblTop.pack(pady=(50,30))
 
     lblBottom   = Label(
         root,
-        
         text = df.loc[(df['Price']<=a1) & (df['Seat']==a2) & (df['Fuel']==a3) & (df['Car Type']==a4) & (df['Color']==a5)],
         font = ("Helvetica",15),
         width = 700,
         justify = "center",
         background = "#ffffff",
-
     )
     lblBottom.pack(pady=(0,30))
-
-
-
 
 def show():
     global lblQuestions,r1,r2,r3,r4,r5
@@ -80,7 +68,6 @@ def show():
     r4.destroy()
     r5.destroy()
     output()
-
 
 user_answer= []
 indexes = [0,1,2,3,4]
@@ -104,12 +91,6 @@ def selected():
     else:
         show()
 
-    
-        
-
-
-
-
 def start():
     global lblQuestions
     lblQuestions = Label(
@@ -120,11 +101,8 @@ def start():
         justify = "center",
         wraplength = 400,
         background = "#ffffff",
-
     )
     lblQuestions.pack(pady=(100,30))
-
-
     global radiovar,r1,r2,r3,r4,r5
     radiovar = IntVar()
     radiovar.set(-1)
@@ -137,7 +115,6 @@ def start():
         variable = radiovar,
         background = "#ffffff",
         command = selected,
-
     )
     r1.pack(pady=5)
 
@@ -149,7 +126,6 @@ def start():
         variable = radiovar,
         background = "#ffffff",
         command = selected,
-
     )
     r2.pack(pady=5)
     
@@ -161,7 +137,6 @@ def start():
         variable = radiovar,
         background = "#ffffff",
         command = selected,
-
     )
     r3.pack(pady=5)
 
@@ -184,13 +159,9 @@ def start():
         variable = radiovar,
         background = "#ffffff",
         command = selected,
-
     )
     r5.pack(pady=5)
-    
-
-
-
+  
 def startIsPressed():
     lableimage.destroy(),
     labeltext.destroy(),
@@ -199,9 +170,6 @@ def startIsPressed():
     btnstart.destroy(),
     start(),
    
-
-
-
 root = tkinter.Tk()
 root.title(" Car Recommender System ")
 root.geometry("800x700")
@@ -213,10 +181,8 @@ lableimage = Label(
     root,
     image = img1,
     background= "#ffffff"
-
 )
 lableimage.pack(pady=(30,0))
-
 
 labeltext = Label(
     root,
@@ -252,10 +218,7 @@ lblrules = Label(
     font=("Times",20),
     background="#000000",
     foreground="#ffffff",
-
 )
 lblrules.pack()
-
-
 root.mainloop()
 
